@@ -1,0 +1,60 @@
+<div class="card shadow" [ngClass]="{ accepted: 'Accepted' === card?.status }">
+  <div class="header">
+    <div class="thumb" aria-hidden="true">
+      <div class="circle">
+        {{ card?.fullName?.charAt(0) }}
+      </div>
+    </div>
+    <div class="info">
+      <h2>{{ card?.fullName }}</h2>
+      <time [attr.datetime]="card?.createdAt">{{
+        formatDateString(card?.createdAt)
+      }}</time>
+    </div>
+  </div>
+  <div class="details">
+    <div class="detail" aria-label="Location">
+      <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+      {{ card?.suburb }}
+    </div>
+    <div class="detail" aria-label="Category">
+      <i class="fa-solid fa-briefcase" aria-hidden="true"></i>
+      {{ card?.category }}
+    </div>
+    <div class="detail">
+      Job ID: <i class="fa-solid fa-hashtag" aria-hidden="true"></i>
+      {{ card?.id }}
+    </div>
+    <div class="detail" aria-label="Price" *ngIf="card?.status == 'Accepted'">
+      <i class="fa-solid fa-receipt" aria-hidden="true"></i>
+      {{ card?.priceToPay | currency }} Lead Invitation
+      <span *ngIf="card?.priceToPay !== card?.price">(10% Discount)</span>
+    </div>
+  </div>
+  <div class="contact" *ngIf="card?.status == 'Accepted'">
+    <div class="phone">
+      <i class="fa-solid fa-phone" aria-hidden="true"></i>
+      <a
+        [attr.aria-label]="'Click to call to ' + card?.phoneNumber"
+        [attr.href]="'tel:' + card?.phoneNumber"
+        >{{ card?.phoneNumber }}</a
+      >
+    </div>
+    <div class="mail">
+      <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+      <a
+        [attr.aria-label]="'Click to send an email to ' + card?.email"
+        [attr.href]="'mail:' + card?.email"
+        >{{ card?.email }}</a
+      >
+    </div>
+  </div>
+  <div class="description">{{ card?.description }}</div>
+  <div class="footer" *ngIf="card?.status !== 'Accepted'">
+    <button type="submit" (click)="accept(card?.id)">Accept</button>
+    <button (click)="declined(card?.id)">Decline</button>
+    <div class="price">
+      <b aria-label="Price">{{ card?.price | currency }}</b> Lead Invitation
+    </div>
+  </div>
+</div>

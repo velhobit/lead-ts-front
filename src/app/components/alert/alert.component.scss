@@ -1,0 +1,53 @@
+.curtain {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--shadow-dark);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 10;
+
+  .panel {
+    min-height: 5rem;
+    width: 90%;
+    background: var(--light);
+    max-width: 540px;
+    margin: 0 auto;
+    border-radius: 3px;
+    box-shadow: 0 1rem 2rem var(--shadow-dark);
+    border: 1px solid var(--shade);
+    padding: 1.2rem;
+
+    .header {
+      h3 {
+        margin: 0;
+        text-align: center;
+        color: var(--text-header);
+      }
+      margin-bottom: 1rem;
+    }
+    .description {
+      font-size: 0.87rem;
+      text-align: center;
+    }
+  }
+
+  .buttons {
+    padding-top: 1.2rem;
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+
+    .button {
+      display: inline-block;
+      margin-right: 0.5rem;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+<div class="tabs shadow">
+  <ng-container *ngFor="let tab of tabs">
+    <div class="tab-button" [ngClass]="{ selected: selected === tab.name }">
+      <button [name]="tab.name" (click)="selectTab(tab.name, tab.onClick)">
+        {{ tab.label }}
+      </button>
+    </div>
+  </ng-container>
+</div>

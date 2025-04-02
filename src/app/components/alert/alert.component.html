@@ -1,0 +1,17 @@
+<div class="curtain">
+  <div class="panel appear">
+    <div class="header">
+      <h3>{{ title }}</h3>
+    </div>
+    <div class="description">
+      {{ message }}
+    </div>
+    <div class="buttons">
+      <div class="button" *ngFor="let button of buttons">
+        <button [attr.type]="button.type" (click)="onClick(button.onClick)">
+          {{ button.label }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

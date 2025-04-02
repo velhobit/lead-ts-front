@@ -1,0 +1,15 @@
+.cards-list {
+  margin: 1rem 0;
+
+  ::ng-deep .card {
+    margin-bottom: 1em;
+
+    &:last-child {
+      margin-bottom: 1em;
+    }
+  }
+}
+.loading {
+  margin: 1em auto;
+  max-width: 4rem;
+}

@@ -1,0 +1,36 @@
+.tabs {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  .tab-button {
+    display: block;
+    width: 100%;
+
+    button {
+      display: block;
+      width: 100%;
+      border: 1px solid var(--shade);
+      border-right: none;
+      background-color: var(--light);
+      box-shadow: 0 0 0 var(--primary) inset;
+      font-size: 1rem;
+      color: var(--text-header);
+      font-weight: 300;
+      padding: 0.6rem 1rem;
+      transition: box-shadow 0.3s;
+    }
+
+    &.selected {
+      button {
+        font-weight: 500;
+        box-shadow: 0 -3px 0 var(--primary) inset;
+      }
+    }
+
+    &:last-child {
+      button {
+        border-right: 1px solid var(--shade);
+      }
+    }
+  }
+}

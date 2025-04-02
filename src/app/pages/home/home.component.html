@@ -1,0 +1,13 @@
+<div>
+  <tabs [tabs]="tabs" [(selected)]="status"></tabs>
+  <div class="loading appear" *ngIf="loading">
+    <loader></loader>
+  </div>
+  <div class="cards-list" *ngIf="!loading">
+    <ng-container *ngFor="let lead of leads">
+      <div class="appear">
+        <card [card]="lead" (statusChanged)="statusChanged()"></card>
+      </div>
+    </ng-container>
+  </div>
+</div>
